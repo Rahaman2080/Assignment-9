@@ -24,18 +24,18 @@ const Home = () => {
             </div>
             <div style={divStyle}>
                 <div className="text-center pt-5" style={{ fontFamily: "Time New Romans" }}>
-                    <h1 className="text-3xl font-semibold">It's simple. You have an event to plan and <br />
-                        We have <span className="text-orange-600 font-bold">the solutions</span></h1>
-                    <p>Here is how we can help you</p>
+                    <h1 className="text-3xl font-semibold">Are you looking for a better event management? <br />
+                        You are in <span className="text-orange-600 font-bold">the right site</span></h1>
+                    <p>Take a look our services bellow.</p>
                     <h2 className=" mt-4 text-purple-700 text-3xl font-bold">Our Services</h2>
                 </div>
                 <div className="max-w-5xl mx-auto py-10">
                     <EventCards></EventCards>
                 </div>
             </div>
-            <div className="bg-[#CBBFF9]">
+            <div className="bg-[#ede9ff]">
                 <div style={{ fontFamily: "Time New Romans" }} className="text-center">
-                    <h1 className="text-purple-600 text-5xl font-bold" >Gallery</h1>
+                    <h1 className="text-purple-600 text-5xl font-bold" >Exclusive Gallery</h1>
                     <p>Oure Recent Projects</p>
                 </div>
                 <div className="max-w-5xl mx-auto py-10">
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
             <div className="bg-[#F5F5F6]">
                 <div style={{ fontFamily: "Time New Romans" }} className="text-center">
-                    <h1 className="text-purple-600 text-5xl font-bold" >Testimonial</h1>
+                    <h1 className="text-purple-600 text-5xl font-bold" >Feedback</h1>
                     <p>Happy clients Feedback about us</p>
                 </div>
                 <div className="max-w-5xl mx-auto py-10">
