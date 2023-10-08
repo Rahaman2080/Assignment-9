@@ -3,6 +3,7 @@ import Banner from "../Shared/Banner/Banner";
 import Navbar from "../Shared/Navbar/Navbar";
 import card_bg from "../../assets/cardbg2.jpg"
 import Gallery from "../EventCards/Gallery/Gallery";
+import Feedback from "../EventCards/Feedback/Feedback";
 
 
 const Home = () => {
@@ -43,11 +44,11 @@ const Home = () => {
             </div>
             <div className="bg-[#F5F5F6]">
                 <div style={{ fontFamily: "Time New Romans" }} className="text-center">
-                    <h1 className="text-purple-600 text-5xl font-bold" >Gallery</h1>
-                    <p>Oure Recent Projects</p>
+                    <h1 className="text-purple-600 text-5xl font-bold" >Testimonial</h1>
+                    <p>Happy clients Feedback about us</p>
                 </div>
                 <div className="max-w-5xl mx-auto py-10">
-                    <Gallery></Gallery>
+                    <Feedback></Feedback>
                 </div>
             </div>
         </div>
