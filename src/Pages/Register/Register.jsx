@@ -3,8 +3,7 @@ import Navbar from "../Shared/Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
-
-
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('');
@@ -14,25 +13,28 @@ const Register = () => {
 
     const handleRegister = e => {
         e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const name = form.get('name');
-        const photoURL = form.get('photoURL')
-        const email = form.get('email');
-        const password = form.get('password');
+        const name = e.target.name.value;
+        const photoURL = e.target.photoURL.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const accepted = e.target.terms.checked;
+        
 
         setRegisterError('')
         setSuccess('')
 
         if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?!.*\s).{6,}$/.test(password)){
-            setRegisterError("password should be 6 characters,one number a lower and uppercase and a sepical character")
+            setRegisterError(Swal.fire("password should be 6 characters,one number a lower and uppercase and a sepical character"))
             return;
-        } 
-
+        } else if(!accepted){
+            setRegisterError(Swal.fire("Please accept our terms and conditons"))
+            return;
+        }
         // create user
         createUser(email, password)
         .then(result =>{
-            console.log(result.user);
-            setSuccess("User created successfully")
+            setSuccess(Swal.fire("User created successfully"))
+
             // update profile
             updateProfile(result.user, {
                 displayName: name,
@@ -42,11 +44,11 @@ const Register = () => {
             .catch()
         })
         .catch(error =>{
-            console.error(error);
             setRegisterError(error.message);
         })
     }
 
+        
     return (
         <div>
             <Navbar></Navbar>
@@ -107,8 +109,6 @@ const Register = () => {
                                 Password
                             </label>
                         </div>
-                        {registerError && <p className="text-red-700">{registerError}</p>
-                        }
                     </div>
                     <div className="inline-flex items-center">
                         <label
@@ -118,8 +118,9 @@ const Register = () => {
                         >
                             <input
                                 type="checkbox"
+                                name="terms"
                                 className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-gray-400 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
-                                id="checkbox"
+                                id="terms"
                             />
                             <span className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                 <svg
@@ -156,9 +157,7 @@ const Register = () => {
                     </div>
                     <button
                         className="mt-6 block w-full select-none rounded-lg bg-purple-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                    >
-                        Register
-                    </button>
+                    > Register</button>
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         Already have an account?
                         <Link to="/login"
@@ -168,9 +167,6 @@ const Register = () => {
                         </Link>
                     </p>
                 </form>
-                        {
-                            success && <p className="text-green-700">{success}</p>
-                        }
                 </div>
             </div>
         </div>

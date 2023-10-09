@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 const Detail = ({detail}) => {
     const {image_url, title, description, price}= detail || {};
     return (
@@ -7,9 +7,6 @@ const Detail = ({detail}) => {
             <div className='border md:col-span-2'>
                 <img src={image_url} alt="" />
                 <p><span className='text-xl font-bold'>description:</span> {description}</p>
-                <Link to="/">
-                <button>back home</button>
-                </Link>
             </div>
             <div className='border space-y-2 p-4'>
                 <p className='font-bold text-xl'>Service details</p>

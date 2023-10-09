@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../Firebase/Firebase.config";
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
    const [loginError, setLoginError] = useState('');
    const [loginSuccess, setLoginSuccess] = useState('');
@@ -21,25 +24,27 @@ const Login = () => {
         setLoginSuccess('');
 
         signIn(email, password)
-            .then(result => {
-                console.log(result.user);
-                setLoginSuccess('User login successful')
+            .then(() => {
+                setLoginSuccess(Swal.fire('User login successful'));
+
+                // navigate after loading
+                navigate(location?.state ? location.state : '/');
             })
-            .catch(error => {
-                console.error(error);
-                setLoginError(error.message);
+            .catch(() => {
+                setLoginError(Swal.fire('Email or Password does not match'));
                
             })
     }
+    
 
     const googleProvider = new GoogleAuthProvider()
     const handleGogleLogin = ()=>{
      signInWithPopup(auth, googleProvider)
      .then(result =>{
-        console.log(result.user);
+        setLoginSuccess(Swal.fire('User login successful'), result.user);
      })
      .catch(error =>{
-        console.error(error);
+        setLoginError(Swal.fire(error.message));
      })
     }
 
@@ -78,12 +83,10 @@ const Login = () => {
                                     Password
                                 </label>
                             </div>
-                            {loginError && <p className="text-red-600">{loginError}</p>}
                         </div>
                         <button
                             className="mt-6 block w-full select-none rounded-lg bg-purple-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         >Login</button>
-                        <button onClick={handleGogleLogin} className='mt-3 flex gap-2 btn btn-outline btn-info normal-case w-full font-bold '><img src="https://i.ibb.co/hL8843b/google-Logo.png" className='w-6' alt="" />Login with google</button>
                         <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                             Do not have account?
                             <Link to="/register"
@@ -93,7 +96,8 @@ const Login = () => {
                             </Link>
                         </p>
                     </form>
-                    {loginSuccess && <p className="text-green-700">{loginSuccess}</p>}
+                    <p className="font-bold pt-2">OR</p>
+                        <button onClick={handleGogleLogin} className='p-3 mb-4 flex gap-2 btn btn-outline btn-info normal-case w-full font-bold text-xl'><img src="https://i.ibb.co/hL8843b/google-Logo.png" className='w-6' alt="" />Login with google</button>
                 </div>
             </div>
         </div>

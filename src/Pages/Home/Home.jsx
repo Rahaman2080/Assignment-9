@@ -16,11 +16,11 @@ const Home = () => {
 
     return (
         <div>
-            <div className=" relative">
-                <Banner></Banner>
+            <div className="">
+            <Navbar></Navbar>  
             </div>
-            <div className="fixed top-0 z-10  w-full">
-                <Navbar></Navbar>
+            <div className="">
+            <Banner></Banner>
             </div>
             <div style={divStyle}>
                 <div className="text-center pt-5" style={{ fontFamily: "Time New Romans" }}>
