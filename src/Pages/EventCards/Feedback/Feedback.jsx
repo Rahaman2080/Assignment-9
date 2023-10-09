@@ -10,19 +10,19 @@ const Feedback = () => {
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/jzk6yXy/person4.webp" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/KDNdmNL/person2.jpg" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/dP3BhJs/person1.jpg" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
@@ -38,19 +38,19 @@ const Feedback = () => {
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/jzk6yXy/person4.webp" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/KDNdmNL/person2.jpg" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
                                 <p>Perfect decoration and perfect buffet for my littile sister birthday party</p>
                             </div>
-                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/5Gvs1LQ/Rahman.jpg" alt="image" /></figure>
+                            <figure className="avater"><img className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src="https://i.ibb.co/dP3BhJs/person1.jpg" alt="image" /></figure>
                         </div>
                         <div className="flex flex-col items-center justify-center text-center rounded-2xl w-60 bg-base-100 shadow-xl">
                             <div className="p-4">
@@ -60,6 +60,8 @@ const Feedback = () => {
                         </div>
                     </div>
                 </div>
+                
+                
             </div>
             <div className="flex justify-center w-full py-2 gap-2">
                 <a href="#item1" className="btn btn-xs">1</a>
