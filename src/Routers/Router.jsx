@@ -7,6 +7,10 @@ import ServiceDetails from "../Pages/EventCards/ServiceDetails/ServiceDetails";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import About from "./About/About";
+import Booking from "./Booking/Booking";
+import Features from "./Features/Features";
+
 
 const router = createBrowserRouter([
     {
@@ -30,6 +34,18 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: "/features",
+                element: <PrivateRoute><Features></Features></PrivateRoute>
+            },
+            {
+                path: "/booking",
+                element: <PrivateRoute><Booking></Booking></PrivateRoute>
             }
         ]
         

@@ -24,6 +24,8 @@ const Navbar = () => {
         <li><NavLink to="/about" className="font-bold text-xl text-white">About</NavLink></li>
         <li><NavLink to="/login" className="font-bold text-xl text-white">Login</NavLink></li>
         <li><NavLink to="/register" className="font-bold text-xl text-white">Register</NavLink></li>
+        <li><NavLink to="/features" className="font-bold text-xl text-white">Features</NavLink></li>
+        <li><NavLink to="/booking" className="font-bold text-xl text-white">Book now</NavLink></li>
     </>
 
     return (
