@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
-
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../Firebase/Firebase.config";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+
+   const [loginError, setLoginError] = useState('');
+   const [loginSuccess, setLoginSuccess] = useState('');
 
     const handleLogin = e => {
         e.preventDefault();
@@ -14,13 +17,30 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password');
 
+        setLoginError('');
+        setLoginSuccess('');
+
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                setLoginSuccess('User login successful')
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setLoginError(error.message);
+               
             })
+    }
+
+    const googleProvider = new GoogleAuthProvider()
+    const handleGogleLogin = ()=>{
+     signInWithPopup(auth, googleProvider)
+     .then(result =>{
+        console.log(result.user);
+     })
+     .catch(error =>{
+        console.error(error);
+     })
     }
 
     return (
@@ -58,12 +78,12 @@ const Login = () => {
                                     Password
                                 </label>
                             </div>
+                            {loginError && <p className="text-red-600">{loginError}</p>}
                         </div>
                         <button
                             className="mt-6 block w-full select-none rounded-lg bg-purple-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        >
-                            Login
-                        </button>
+                        >Login</button>
+                        <button onClick={handleGogleLogin} className='mt-3 flex gap-2 btn btn-outline btn-info normal-case w-full font-bold '><img src="https://i.ibb.co/hL8843b/google-Logo.png" className='w-6' alt="" />Login with google</button>
                         <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                             Do not have account?
                             <Link to="/register"
@@ -73,6 +93,7 @@ const Login = () => {
                             </Link>
                         </p>
                     </form>
+                    {loginSuccess && <p className="text-green-700">{loginSuccess}</p>}
                 </div>
             </div>
         </div>
